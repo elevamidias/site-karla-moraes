@@ -1,0 +1,2712 @@
+/* Reset e Variáveis */
+:root {
+  /* Cores Principais */
+  --primary-blue: #0D2B23;
+  --secondary-green: #EAB04C;
+  --accent-purple: #EAB04C;
+  --light-gray: #F3F0E7;
+  --medium-gray: #D8D2C5;
+  --white: #FFFFFF;
+  --text-primary: #1C2823;
+  --text-secondary: #34433C;
+  --rosadela: #EAB04C;
+  --verdeclaro: #163F33;
+  
+  /* Tipografia */
+  --font-heading: "Figtree", sans-serif;
+  --font-body: "Barlow Condensed", sans-serif;
+  
+  /* Espaçamentos */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-xxl: 4rem;
+  
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+  
+  /* Bordas */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-full: 9999px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+.text-strong{
+  font-size: medium;
+  
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-secondary);
+}
+
+/* Utilitários */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section {
+  padding: var(--spacing-xxl) 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Botões */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--border-radius-full);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  /* Corrigido: "Barlow Condensed" só passou a carregar de verdade nesta versão
+     (antes faltava no link do Google Fonts, e o navegador usava uma fonte padrão
+     como reserva). Isso mudou a aparência do texto dos botões, então voltamos
+     para a fonte de título (Figtree), que é a aparência que eles sempre tiveram. */
+  font-family: var(--font-heading);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--secondary-green), var(--secondary-green));
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+}
+
+.btn-primary.large {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1.1rem;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--medium-gray);
+  z-index: 1000;
+  padding: var(--spacing-sm) 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* .logo-icon: dimensões e imagem definidas no bloco "LOGO OFICIAL", mais abaixo. */
+
+.logo-text .logo-name {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--primary-blue);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.logo-text span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-lg);
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--accent-purple);
+}
+
+.btn-contact {
+  background: linear-gradient(135deg, var(--secondary-green), var(--accent-purple));
+  color: var(--white);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-full);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #09231D 0%, #0D2B23 58%, #123B2E 100%);
+  padding-top: 120px;
+  padding-bottom: var(--spacing-xxl);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xxl);
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: var(--white);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius-full);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.badge-icon {
+  font-size: 1.2rem;
+}
+
+.hero-title {
+  font-size: 3.1rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-md);
+  font-weight: 500;
+  
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-xl);
+  line-height: 2;
+  
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  position: relative;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  max-width: 500px; /* se quiser limitar */
+}
+
+/* Para telas maiores (PC) diminui o tamanho */
+@media (min-width: 768px) {
+  img {
+    width: 60%; /* diminui no PC */
+    max-width: 545px; /* opcional */
+  }
+}
+
+.image-container {
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.badge-floating {
+  position: absolute;
+  background: var(--white);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.9rem;
+}
+
+.badge-floating.top-left {
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+}
+
+.badge-floating.bottom-right {
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  flex-direction: column;
+  text-align: center;
+  gap: var(--spacing-xs);
+  margin: -20px;
+}
+
+.badge-icon-box {
+  background: var(--secondary-green);
+  color: var(--white);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.experience-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-purple);
+}
+
+/* Especialidades */
+.specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.specialty-card {
+  background: var(--white);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--medium-gray);
+  transition: all 0.3s ease;
+}
+
+.specialty-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.specialty-card h3 {
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5rem;
+}
+
+.specialty-card p {
+  margin-bottom: var(--spacing-md);
+  font-size: 1.0rem;
+}
+
+.specialty-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.specialty-card li {
+  position: relative;
+  padding-left: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.specialty-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--secondary-green);
+  font-weight: bold;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  margin: auto;
+  height: auto;
+  
+}
+
+
+
+/* Sobre Mim */
+.about-section {
+  background: var(--light-gray);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-xxl);
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 2px 4px rgba(2, 2, 2, 0.205);
+}
+
+.intro-text strong{
+  color: rgb(255, 41, 209);
+  text-shadow: 0 1px 1px #000000;
+}
+
+.credentials {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.credential-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: var(--white);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.credential-icon {
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--secondary-green), var(--secondary-green));
+  color: var(--white);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.credential-item div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.credential-item strong {
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-xs);
+}
+
+.credential-item span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.about-image img {
+  width: 300%;
+  max-width: 500px; /* opcional: evita ficar muito grande no desktop */
+  height: auto;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+  .about-image img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Depoimentos */
+.testimonials-section {
+  background: var(--white);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.testimonial-card {
+  background: var(--light-gray);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.quote-icon {
+  font-size: 3rem;
+  color: var(--accent-purple);
+  opacity: 0.3;
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+}
+
+.testimonial-content {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-content p {
+  font-style: italic;
+  margin-bottom: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--accent-purple), var(--primary-blue));
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.testimonial-author div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-author strong {
+  color: var(--primary-blue);
+}
+
+.testimonial-author span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Contato */
+.contact-section {
+  background: var(--light-gray);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xxl);
+  align-items: start;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  background: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--secondary-green), var(--accent-purple));
+  color: var(--white);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-item div:last-child {
+  flex: 1;
+}
+
+.contact-item strong {
+  color: var(--primary-blue);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.contact-cta {
+  background: var(--white);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.contact-cta h3 {
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5rem;
+}
+
+.contact-cta p {
+  margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr; /* Apenas uma coluna em telas pequenas */
+    gap: var(--spacing-lg);
+    padding: -0px var(--spacing-md); /* Pequeno padding lateral */
+    margin-left: -36px;
+  }
+
+  .contact-item {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, var(--verdeclaro), var(--rosadela));
+  color: var(--white);
+  padding: var(--spacing-xxl) 0 var(--spacing-lg) 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-logo .logo-icon {
+  border-radius: var(--border-radius-md);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+.footer-brand h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: black;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.247);
+}
+
+.footer-brand span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  color: black;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.247);
+}
+
+.footer-brand p {
+  margin: var(--spacing-md) 0;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.social-links img {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-nav h4,
+.footer-services h4,
+.footer-contact h4 {
+  margin-bottom: var(--spacing-md);
+  color: var(--white);
+  font-size: 1.1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.979);
+}
+
+.footer-nav ul,
+.footer-services ul {
+  list-style: none;
+  
+}
+
+.footer-nav li,
+.footer-services li {
+  margin-bottom: var(--spacing-xs);
+  
+  
+}
+
+.footer-nav a {
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.342);
+}
+
+.footer-nav a:hover {
+  color: var(--white);
+}
+
+.footer-services li {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.342);
+}
+
+.footer-contact-info p {
+  margin-bottom: var(--spacing-md);
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.342);
+}
+
+.footer-contact-info strong {
+  color: var(--white);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: var(--spacing-lg);
+  text-align: center;
+}
+
+.footer-bottom-content p {
+  margin-bottom: var(--spacing-xs);
+  opacity: 0.8;
+}
+
+.crp-info {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .specialties-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .specialties-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .specialty-card {
+    padding: var(--spacing-lg);
+  }
+}
+
+/*CARROSEL*/
+
+.testimonials-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+
+.carrossel {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.slides-wrapper {
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+/* Botões */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  opacity: 0.7;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.9);
+}
+
+.prev {
+  left: -20px;
+}
+
+.next {
+  right: -20px;
+}
+
+/* Responsivo */
+@media (max-width: 700px) {
+  .slides img {
+    width: 250px;
+  }
+}
+
+@media (max-width: 500px) {
+  .slides img {
+    width: 200px;
+  }
+
+  .prev, .next {
+    display: none;
+  }
+}
+
+/*GALERIA*/
+
+.gallery-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    
+}
+
+.gallery-title {
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #EAB04C, #EAB04C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    margin: auto;
+    padding: 10px;
+}
+
+.gallery-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item.active {
+    opacity: 1;
+    margin: auto;
+}
+
+.gallery-item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(45deg, #EAB04C, #EAB04C);
+    color: white;
+    border: none;
+    padding: 18px 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 2em;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: linear-gradient(45deg, #0D2B23, #0D2B23);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.dots-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.dot {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 3px solid transparent;
+}
+
+.dot:hover {
+    background-color: #bbb;
+    transform: scale(1.3);
+}
+
+.dot.active {
+    background: linear-gradient(45deg, #0D2B23, #163F33);
+    border-color: #0D2B23;
+    transform: scale(1.4);
+}
+
+/* Efeito de carrossel com slide */
+.gallery-wrapper.slide-mode {
+    overflow: hidden;
+}
+
+.gallery-wrapper.slide-mode .gallery-item {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 1;
+    transition: left 0.6s ease-in-out;
+}
+
+.gallery-wrapper.slide-mode .gallery-item.active {
+    left: 0;
+}
+
+.gallery-wrapper.slide-mode .gallery-item.prev {
+    left: -100%;
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .gallery-title {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+    }
+    
+    .gallery-wrapper {
+        height: 350px;
+    }
+    
+    .prev-btn, .next-btn {
+        padding: 15px 18px;
+        font-size: 1.6em;
+    }
+    
+    .dot {
+        width: 14px;
+        height: 14px;
+        margin: 0 8px;
+    }
+}
+
+/* Estilos para o formulário de contato */
+
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.328);
+    font-family: Arial, sans-serif;
+  }
+
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000;
+  }
+
+  .form-container input,
+  .form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #EAB04C;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+
+  .form-container input:focus,
+  .form-container textarea:focus {
+    border-color: #EAB04C;
+    outline: none;
+  }
+
+  .form-container button {
+    width: 100%;
+    padding: 12px;
+    background: #EAB04C;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .form-container button:hover {
+    background: #000000;
+  }
+
+  @media(max-width: 600px) {
+    .form-container {
+      padding: 15px;
+      margin: 20px;
+    }
+  }
+
+    /*zap flutuante*/
+
+     .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25D366;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        text-decoration: none;
+        z-index: 1000;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .whatsapp-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+
+    .whatsapp-button img {
+        width: 30px;
+        height: 30px;
+    }
+
+    @media (max-width: 768px) {
+        .whatsapp-button {
+            width: 50px;
+            height: 50px;
+        }
+
+        .whatsapp-button img {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    /*BOTÃO INSTAGRAM*/
+
+    .btn-instagram {
+  margin-top: 12px;
+  background-color: #EAB04C;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+
+.btn-instagram:hover {
+  background-color: #B07C20;
+}
+
+/* ===== NOVA IDENTIDADE VISUAL - KARLA MORAES ===== */
+/* Variáveis de marca centralizadas no bloco :root do fim do arquivo. */
+
+body {
+  background: var(--brand-white);
+  color: var(--text-secondary);
+}
+
+.header {
+  background: rgba(255, 253, 248, 0.96);
+  border-bottom: 1px solid rgba(217, 164, 65, 0.25);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--brand-gold);
+}
+
+.btn-contact,
+.btn-primary {
+  background: linear-gradient(135deg, #EAB04C, #B98325);
+  color: #0D2B23;
+}
+
+.btn-secondary {
+  color: var(--brand-green);
+  border-color: var(--brand-gold);
+}
+
+.btn-secondary:hover {
+  background: var(--brand-green);
+  color: var(--brand-white);
+  border-color: var(--brand-green);
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(217,164,65,.18), transparent 28%),
+    linear-gradient(135deg, #0D2B23 0%, #163F33 100%);
+}
+
+.hero-title,
+.hero-subtitle,
+.hero-description {
+  color: var(--brand-white);
+}
+
+.hero-description {
+  opacity: .92;
+}
+
+.badge {
+  color: var(--brand-green);
+  border: 1px solid rgba(217,164,65,.35);
+}
+
+.badge-floating {
+  border: 1px solid rgba(217,164,65,.28);
+}
+
+.badge-icon-box {
+  background: var(--brand-gold);
+  color: var(--brand-green);
+}
+
+.experience-number {
+  color: var(--brand-gold);
+}
+
+.section-title {
+  color: var(--brand-green);
+}
+
+.specialty-card,
+.credential-item,
+.contact-item,
+.contact-cta,
+.gallery-container {
+  border-color: rgba(13,43,35,.12);
+}
+
+.specialty-card:hover {
+  border-color: rgba(217,164,65,.55);
+}
+
+.about-section,
+.contact-section {
+  background: var(--brand-cream);
+}
+
+.intro-text {
+  color: var(--brand-green);
+}
+
+.intro-text strong {
+  color: var(--brand-gold);
+  text-shadow: none;
+}
+
+.credential-icon,
+.contact-icon {
+  background: linear-gradient(135deg, var(--brand-green), var(--brand-green-2));
+}
+
+.credential-item strong,
+.testimonial-author strong {
+  color: var(--brand-green);
+}
+
+.testimonials-section {
+  background: var(--brand-white);
+}
+
+.testimonial-card {
+  background: var(--brand-cream);
+}
+
+.quote-icon {
+  color: var(--brand-gold);
+}
+
+.author-avatar {
+  background: linear-gradient(135deg, var(--brand-gold), var(--brand-green));
+}
+
+.gallery-title {
+  color: var(--brand-green);
+}
+
+.prev-btn,
+.next-btn {
+  background: linear-gradient(45deg, #EAB04C, #B98325);
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: linear-gradient(45deg, #0D2B23, #163F33);
+}
+
+.dot.active {
+  background: var(--brand-gold);
+  border-color: var(--brand-gold);
+}
+
+.btn-instagram {
+  background-color: var(--brand-green);
+}
+
+.btn-instagram:hover {
+  background-color: var(--brand-gold);
+  color: var(--brand-green);
+}
+
+/* Nova foto: mantém enquadramento profissional */
+.image-container img,
+.about-image img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.image-container img {
+  aspect-ratio: 1 / 1;
+}
+
+.about-image img {
+  aspect-ratio: 1 / 1;
+}
+
+
+/* Logo provisório "KM": removido — a logo real (assets/logo-icone.png) é
+   aplicada pelo bloco "IDENTIDADE VISUAL DEFINITIVA", mais abaixo. */
+
+/* =========================================================
+   IDENTIDADE VISUAL DEFINITIVA — VERDE PROFUNDO + DOURADO
+   Este bloco fica por último para substituir as cores antigas.
+   ========================================================= */
+
+/* Base */
+body{
+  background:var(--brand-offwhite) !important;
+  color:var(--brand-text) !important;
+}
+p{
+  color:var(--brand-text) !important;
+}
+
+/* Cabeçalho */
+.header{
+  background:rgba(252,250,245,.97) !important;
+  border-bottom:1px solid rgba(201,154,62,.30) !important;
+}
+.logo-text .logo-name,
+.section-title,
+.specialty-card h3,
+.credential-item strong,
+.testimonial-author strong,
+.contact-item strong,
+.contact-cta h3,
+.gallery-title{
+  color:var(--brand-green) !important;
+}
+.logo-text span{
+  color:var(--brand-text) !important;
+}
+.nav-menu a{
+  color:var(--brand-green) !important;
+}
+.nav-menu a:hover,
+.nav-menu a.active{
+  color:var(--brand-gold) !important;
+}
+
+/* Botões */
+.btn-primary,
+.btn-contact{
+  background:linear-gradient(135deg,var(--brand-gold),var(--brand-gold-light)) !important;
+  color:var(--brand-green-dark) !important;
+}
+.btn-secondary{
+  background:transparent !important;
+  color:var(--brand-green) !important;
+  border-color:var(--brand-gold) !important;
+}
+.btn-secondary:hover{
+  background:var(--brand-green) !important;
+  color:#fff !important;
+  border-color:var(--brand-green) !important;
+}
+
+/* HERO — verde predominante */
+.hero{
+  background:
+    radial-gradient(circle at 82% 18%, rgba(216,177,90,.20), transparent 27%),
+    linear-gradient(135deg,var(--brand-green-dark) 0%,var(--brand-green) 58%,var(--brand-green-light) 100%) !important;
+}
+.hero-title,
+.hero-subtitle,
+.hero-description{
+  color:#fff !important;
+}
+.badge,
+.badge-floating{
+  background:#fff !important;
+  color:var(--brand-green) !important;
+}
+.badge-icon-box{
+  background:var(--brand-gold) !important;
+  color:var(--brand-green-dark) !important;
+}
+.experience-number{
+  color:var(--brand-gold) !important;
+}
+
+/* Cards / especialidades */
+.specialty-card{
+  background:#fff !important;
+  border-color:rgba(18,59,46,.14) !important;
+}
+.specialty-card:hover{
+  border-color:rgba(201,154,62,.65) !important;
+}
+.specialty-card li::before{
+  color:var(--brand-gold) !important;
+}
+
+/* SOBRE */
+.about-section,
+.contact-section{
+  background:var(--brand-cream) !important;
+}
+.intro-text{
+  color:var(--brand-green) !important;
+}
+.intro-text strong{
+  color:var(--brand-gold) !important;
+  text-shadow:none !important;
+}
+.credential-item,
+.contact-item,
+.contact-cta{
+  background:#fff !important;
+  border-color:rgba(18,59,46,.12) !important;
+}
+.credential-icon,
+.contact-icon{
+  background:linear-gradient(135deg,var(--brand-green-dark),var(--brand-green-light)) !important;
+  color:#fff !important;
+}
+
+/* DEPOIMENTOS */
+.testimonials-section{
+  background:var(--brand-offwhite) !important;
+}
+.testimonial-card{
+  background:var(--brand-cream) !important;
+}
+.quote-icon{
+  color:var(--brand-gold) !important;
+}
+.author-avatar{
+  background:linear-gradient(135deg,var(--brand-gold),var(--brand-green)) !important;
+}
+
+/* GALERIA */
+.gallery-container{
+  border-color:rgba(18,59,46,.14) !important;
+}
+.prev-btn,
+.next-btn{
+  background:linear-gradient(135deg,var(--brand-gold),var(--brand-gold-light)) !important;
+  color:var(--brand-green-dark) !important;
+}
+.prev-btn:hover,
+.next-btn:hover{
+  background:var(--brand-green) !important;
+}
+.dot.active{
+  background:var(--brand-gold) !important;
+  border-color:var(--brand-gold) !important;
+}
+
+/* CONTATO */
+.form-container{
+  background:#fff !important;
+}
+.form-container h2{
+  color:var(--brand-green) !important;
+}
+.form-container input,
+.form-container textarea{
+  border-color:rgba(201,154,62,.65) !important;
+}
+.form-container button{
+  background:var(--brand-gold) !important;
+  color:var(--brand-green-dark) !important;
+}
+.form-container button:hover{
+  background:var(--brand-green) !important;
+  color:#fff !important;
+}
+.btn-instagram{
+  background:var(--brand-green) !important;
+  color:#fff !important;
+}
+.btn-instagram:hover{
+  background:var(--brand-gold) !important;
+  color:var(--brand-green-dark) !important;
+}
+
+/* RODAPÉ — verde, sem rosa */
+.footer{
+  background:linear-gradient(135deg,var(--brand-green-dark),var(--brand-green)) !important;
+  color:#fff !important;
+}
+.footer-brand h3,
+.footer-brand span{
+  color:#fff !important;
+  text-shadow:none !important;
+}
+.footer-brand p{
+  color:#fff !important;
+}
+.footer-nav h4,
+.footer-services h4,
+.footer-contact h4{
+  color:var(--brand-gold-light) !important;
+  text-shadow:none !important;
+}
+
+/* WhatsApp mantém a cor própria de comunicação */
+.whatsapp-button{
+  background-color:#25D366 !important;
+}
+
+/* =========================================================
+   IDENTIDADE VISUAL FINAL — VERDE PROFUNDO + DOURADO
+   ========================================================= */
+/* Paleta de marca — bloco único e definitivo.
+   Reúne os valores que efetivamente vigoravam nos três :root anteriores. */
+:root {
+  --brand-green: #0D2B23;
+  --brand-green-2: #123B2E;
+  --brand-green-3: #09231D;
+  --brand-green-dark: #0B2A21;
+  --brand-green-light: #1D4D3D;
+  --brand-gold: #EAB04C;
+  --brand-gold-light: #F0BE62;
+  --brand-cream: #F3F2ED;
+  --brand-offwhite: #FCFAF5;
+  --brand-white: #FFFDF8;
+  --brand-text: #26352F;
+}
+
+body {
+  background: var(--brand-cream) !important;
+  color: var(--brand-green) !important;
+}
+
+/* Header */
+.header {
+  background: rgba(255, 253, 248, 0.97) !important;
+  border-bottom: 1px solid rgba(13, 43, 35, 0.12) !important;
+}
+
+.logo-text .logo-name { color: var(--brand-green) !important; }
+.logo-text span { color: #52615A !important; }
+
+.nav-menu a {
+  color: var(--brand-green) !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+}
+
+
+.btn-contact {
+  background: var(--brand-gold) !important;
+  color: var(--brand-green-3) !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--brand-green-3) 0%, var(--brand-green) 58%, var(--brand-green-2) 100%) !important;
+}
+
+.hero-title {
+  color: var(--brand-cream) !important;
+}
+
+.hero-subtitle,
+.hero-description { color: var(--brand-cream) !important; }
+
+.hero-subtitle { opacity: .98; }
+.hero-description { opacity: .88; }
+
+.badge {
+  background: var(--brand-cream) !important;
+  color: var(--brand-green) !important;
+}
+
+.badge-icon { color: var(--brand-gold) !important; }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-light)) !important;
+  color: var(--brand-green-3) !important;
+  font-weight: 700 !important;
+}
+
+/* Saiba Mais: claro, elegante e com contorno dourado */
+.hero .btn-secondary {
+  background: var(--brand-cream) !important;
+  color: var(--brand-green) !important;
+  border: 2px solid var(--brand-gold) !important;
+  font-weight: 700 !important;
+}
+
+.hero .btn-secondary:hover {
+  background: var(--brand-gold) !important;
+  color: var(--brand-green-3) !important;
+}
+
+/* Selo sobre a fotografia: aparência final definida no bloco V7,
+   mais abaixo (padding, tamanhos de fonte etc. deste selo específico). */
+
+.hero .badge-icon-box {
+  background: var(--brand-gold) !important;
+  color: var(--brand-green-3) !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+}
+
+/* Selo 5+ */
+.hero .badge-floating.bottom-right {
+  background: var(--brand-cream) !important;
+  border: 1px solid rgba(234,176,76,.45) !important;
+}
+
+.hero .badge-floating.bottom-right .experience-number {
+  color: var(--brand-green) !important;
+}
+
+.hero .badge-floating.bottom-right small { color: #52615A !important; }
+
+/* Demais seções */
+.section { background: var(--brand-cream) !important; }
+.section:nth-of-type(even) { background: var(--brand-white) !important; }
+
+.section-title { color: var(--brand-green) !important; }
+.section-subtitle { color: #52615A !important; }
+
+.specialty-card,
+.testimonial-card,
+.contact-item {
+  background: var(--brand-white) !important;
+  border-color: rgba(13,43,35,.10) !important;
+}
+
+.card-icon,
+.contact-icon { color: var(--brand-gold) !important; }
+
+.specialty-card h3,
+.testimonial-card h3,
+.contact-item strong { color: var(--brand-green) !important; }
+
+/* Links/acentos */
+a { --accent-purple: var(--brand-gold); }
+
+/* Logo provisório "KM" do cabeçalho: removida — ver bloco "LOGO OFICIAL". */
+
+
+/* Animação do nome principal */
+
+@media (max-width: 768px) {
+  .nav-menu a { font-size: .98rem !important; }
+  .hero .badge-floating.top-left { max-width: 190px !important; padding: .55rem .75rem !important; }
+  .hero .badge-floating.top-left strong { font-size: .78rem !important; }
+  .hero .badge-floating.top-left small { font-size: .68rem !important; }
+}
+
+
+/* ===== AJUSTES FINAIS DO HERO — V7 ===== */
+.hero .badge-floating.top-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: fit-content !important;
+  max-width: 235px !important;
+  padding: 9px 14px !important;
+  border-radius: 16px !important;
+  background: rgba(255,253,248,.96) !important;
+  border: 1px solid rgba(234,176,76,.35) !important;
+  box-shadow: 0 10px 28px rgba(5,25,20,.16) !important;
+  backdrop-filter: blur(7px) !important;
+}
+.hero .badge-floating.top-left .badge-icon-box {
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  background: var(--brand-gold) !important;
+  color: var(--brand-green-3) !important;
+  font-size: .86rem !important;
+  font-weight: 800 !important;
+  box-shadow: 0 3px 8px rgba(234,176,76,.25) !important;
+}
+.hero .badge-floating.top-left > div:last-child {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1px !important;
+  line-height: 1.15 !important;
+}
+.hero .badge-floating.top-left strong {
+  font-size: .78rem !important;
+  line-height: 1.15 !important;
+  letter-spacing: .01em !important;
+  font-weight: 700 !important;
+  color: var(--brand-green) !important;
+}
+.hero .badge-floating.top-left small {
+  font-size: .68rem !important;
+  line-height: 1.15 !important;
+  color: #66736d !important;
+  font-weight: 500 !important;
+}
+
+.hero .hero-description {
+  line-height: 1.85 !important;
+  letter-spacing: .01em !important;
+  margin-top: 18px !important;
+  max-width: 610px !important;
+}
+
+/* Título: animação de escrita controlada pelo JS */
+
+@media (max-width: 768px) {
+  .hero .badge-floating.top-left {
+    max-width: 190px !important;
+    padding: 8px 11px !important;
+    border-radius: 14px !important;
+    gap: 8px !important;
+  }
+  .hero .badge-floating.top-left .badge-icon-box {
+    width: 25px !important;
+    height: 25px !important;
+    min-width: 25px !important;
+    font-size: .72rem !important;
+  }
+  .hero .badge-floating.top-left strong { font-size: .70rem !important; }
+  .hero .badge-floating.top-left small { font-size: .62rem !important; }
+  .hero .hero-description { line-height: 1.75 !important; }
+}
+
+
+/* =========================================================
+   AJUSTES V8 — ESPECIALIDADES E RODAPÉ
+   ========================================================= */
+
+/* Destaque da frase de abertura de Especialidades */
+#especialidades .section-subtitle {
+  max-width: 820px;
+  margin: 0 auto var(--spacing-xl);
+  padding: 16px 24px;
+  color: var(--primary-blue);
+  background: rgba(234, 176, 76, 0.10);
+  border: 1px solid rgba(234, 176, 76, 0.42);
+  border-left: 4px solid var(--secondary-green);
+  border-radius: 12px;
+  font-size: 1.12rem;
+  font-weight: 500;
+  line-height: 1.7;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(13, 43, 35, 0.06);
+}
+
+/* Cards de especialidades: mesma presença e altura visual */
+#especialidades .specialties-grid {
+  align-items: stretch;
+}
+
+#especialidades .specialty-card {
+  min-height: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+#especialidades .specialty-card ul {
+  flex: 1;
+  margin-top: 4px;
+}
+
+#especialidades .specialty-card h3 {
+  line-height: 1.25;
+}
+
+#especialidades .specialty-card h6.text-strong {
+  line-height: 1.55;
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+}
+
+#especialidades .specialty-card li {
+  line-height: 1.55;
+}
+
+/* Mantém os cards ocultos pelo JS sem alterar sua altura */
+#especialidades .specialty-card[style*="opacity: 0"] {
+  min-height: 500px;
+}
+
+/* Rodapé: contraste profissional e leitura fácil.
+   (O gradiente de fundo definitivo está no bloco "IDENTIDADE FINAL",
+   mais abaixo, para ficar junto com as demais cores de marca.) */
+.footer {
+  color: #F3F2ED !important;
+}
+
+.footer-brand h3,
+.footer-brand span,
+.footer-brand p,
+.footer-nav a,
+.footer-services li,
+.footer-contact-info p,
+.footer-contact-info strong,
+.footer-bottom-content p,
+.crp-info {
+  color: #F3F2ED !important;
+  text-shadow: none !important;
+}
+
+.footer-brand h3 {
+  font-weight: 700;
+}
+
+.footer-brand span {
+  opacity: 0.86;
+}
+
+.footer-brand p {
+  opacity: 0.88;
+}
+
+.footer-nav h4,
+.footer-services h4,
+.footer-contact h4 {
+  color: #EAB04C !important;
+  text-shadow: none !important;
+  font-weight: 700;
+}
+
+.footer-nav a,
+.footer-services li,
+.footer-contact-info p {
+  color: rgba(243, 242, 237, 0.88) !important;
+}
+
+.footer-nav a:hover {
+  color: #EAB04C !important;
+}
+
+.footer-contact-info strong {
+  color: #F3F2ED !important;
+}
+
+.footer-bottom {
+  border-top-color: rgba(234, 176, 76, 0.35) !important;
+}
+
+.footer-bottom-content p,
+.crp-info {
+  opacity: 0.78;
+}
+
+@media (max-width: 768px) {
+  #especialidades .section-subtitle {
+    padding: 14px 18px;
+    font-size: 1rem;
+    line-height: 1.65;
+    text-align: left;
+  }
+
+  #especialidades .specialty-card {
+    min-height: 0;
+  }
+
+  #especialidades .specialty-card[style*="opacity: 0"] {
+    min-height: 0;
+  }
+}
+
+
+/* =========================================================
+   ESPECIALIDADES — NOVA APRESENTAÇÃO V10
+   Alteração visual: nenhum texto do conteúdo foi modificado.
+   ========================================================= */
+#especialidades .specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+  margin-top: 34px;
+}
+
+#especialidades .specialty-card {
+  position: relative;
+  min-height: 500px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 28px 28px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #FFFDF8 0%, #F3F2ED 100%) !important;
+  border: 1px solid rgba(234,176,76,.28) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 28px rgba(9,35,29,.08) !important;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+/* pequeno detalhe dourado que dá acabamento editorial */
+#especialidades .specialty-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #D99A32, #EAB04C, #F0BE62);
+}
+
+#especialidades .specialty-card::after {
+  content: '';
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  right: -55px;
+  bottom: -55px;
+  border-radius: 50%;
+  background: rgba(234,176,76,.08);
+  pointer-events: none;
+}
+
+#especialidades .specialty-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(234,176,76,.58) !important;
+  box-shadow: 0 18px 38px rgba(9,35,29,.14) !important;
+}
+
+#especialidades .card-icon {
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: #0D2B23;
+  border: 1px solid rgba(234,176,76,.72);
+  box-shadow: 0 7px 16px rgba(13,43,35,.14);
+  font-size: 25px;
+  line-height: 1;
+}
+
+#especialidades .specialty-card h3 {
+  margin: 0 0 16px !important;
+  color: #0D2B23 !important;
+  font-size: 1.28rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+#especialidades .specialty-card h6.text-strong {
+  margin: 0 0 12px !important;
+  color: #163F33 !important;
+  font-size: .96rem !important;
+  line-height: 1.55 !important;
+  font-weight: 700;
+}
+
+#especialidades .specialty-card ul {
+  flex: 1;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#especialidades .specialty-card li {
+  position: relative;
+  padding-left: 18px;
+  margin: 0 0 12px !important;
+  color: #44544F !important;
+  font-size: .98rem !important;
+  line-height: 1.62 !important;
+}
+
+#especialidades .specialty-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .68em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #EAB04C !important;
+  box-shadow: 0 0 0 3px rgba(234,176,76,.12);
+}
+
+/* Os <br> antigos estavam criando espaços irregulares entre os blocos. */
+#especialidades .specialty-card br {
+  display: none;
+}
+
+/* O título que vem depois de uma lista ganha separação consistente. */
+#especialidades .specialty-card li + h6.text-strong,
+#especialidades .specialty-card h6.text-strong + ul h6.text-strong {
+  margin-top: 18px !important;
+}
+
+
+@media (max-width: 1000px) {
+  #especialidades .specialties-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  #especialidades .specialties-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  #especialidades .specialty-card,
+  #especialidades .specialty-card[style*="opacity: 0"] {
+    min-height: 0;
+    padding: 26px 22px 24px;
+  }
+}
+
+/* =========================================================
+   LOGO OFICIAL — adicionada por solicitação do cliente.
+   Substitui apenas a imagem do monograma provisório "KM"
+   pelo ícone oficial (árvore + cérebro). Nada mais foi alterado.
+   ========================================================= */
+.logo .logo-icon,
+.footer-logo .logo-icon {
+  background-image: url("logo-icone.png") !important;
+  background-color: transparent !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  border: none !important;
+}
+.logo .logo-icon::after,
+.footer-logo .logo-icon::after {
+  content: "" !important;
+}
+
+.logo .logo-icon {
+  width: 62px;
+  height: 62px;
+}
+
+.footer-logo .logo-icon {
+  width: 72px;
+  height: 72px;
+}
+
+
+/* =========================================================
+   MAPA E FORMULÁRIO DE CONTATO
+   ========================================================= */
+.map-embed {
+  margin: 3rem 0 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(13, 43, 35, 0.12);
+  box-shadow: 0 10px 30px rgba(9, 35, 29, 0.10);
+  background: var(--brand-white);
+}
+
+.map-embed iframe {
+  display: block;
+  width: 100%;
+  height: 380px;
+  border: 0;
+}
+
+.map-embed .map-link {
+  display: block;
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--brand-green);
+  background: var(--brand-cream);
+  border-top: 1px solid rgba(13, 43, 35, 0.10);
+}
+
+.map-embed .map-link:hover { color: #8A6118; }
+
+
+
+
+.wa-field { margin-bottom: 1.1rem; }
+
+.wa-field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: var(--brand-green);
+}
+
+.wa-form input,
+.wa-form select,
+.wa-form textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--brand-text);
+  background: #FFFDF8;
+  border: 1px solid rgba(13, 43, 35, 0.20);
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.wa-form textarea { resize: vertical; }
+
+.wa-form input:focus,
+.wa-form select:focus,
+.wa-form textarea:focus {
+  outline: none;
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 0 3px rgba(234, 176, 76, 0.25);
+}
+
+.wa-status {
+  min-height: 1.4rem;
+  margin: 0.2rem 0 0.8rem;
+  font-size: 0.98rem;
+  color: var(--brand-green);
+}
+
+.wa-status.erro { color: #A33A2A; }
+
+.wa-form .wa-submit { width: 100%; }
+
+@media (max-width: 600px) {
+  .map-embed iframe { height: 300px; }
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DE DIGITAÇÃO DO TÍTULO — V13
+   O texto ocupa o espaço final desde o primeiro quadro (via ::before com
+   attr(data-full)), então a página não "pula" enquanto as letras aparecem
+   — e o H1 nunca fica com o nome duplicado no HTML (importante pro SEO).
+   ========================================================= */
+.hero-title-name.typing-title {
+  position: relative;
+  display: inline-block;
+  white-space: normal;
+  overflow: visible;
+  border: 0;
+  padding-right: 0;
+  animation: none;
+}
+
+.hero-title-name.typing-title::before {
+  content: attr(data-full);
+  display: block;
+  visibility: hidden;
+}
+
+.hero-title-name .tw-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hero-title-name .tw-text::after {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 0.92em;
+  margin-left: 6px;
+  vertical-align: -0.12em;
+  background: var(--brand-gold);
+  animation: cursorPisca 0.9s step-end infinite;
+}
+
+.hero-title-name.done .tw-text::after {
+  display: none;
+}
+
+@keyframes cursorPisca {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title-name .tw-text::after { animation: none; opacity: 0; }
+}
+
+/* Título do Hero: agora é o H1 da página (nome animado + palavra-chave de SEO abaixo) */
+.hero-title { display: block; }
+
+.hero-title-name { display: inline-block; }
+
+.hero-title-kicker {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--brand-gold, #EAB04C);
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 768px) {
+  .hero-title-kicker { font-size: 1rem; }
+}
+
+/* =========================================================
+   FORMULÁRIO DENTRO DO CARD "PRONTO PARA COMEÇAR?"
+   ========================================================= */
+.contact-cta .cta-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 1.8rem 0 1.4rem;
+  color: #6B7A72;
+  font-size: 0.92rem;
+}
+
+.contact-cta .cta-divider::before,
+.contact-cta .cta-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(13, 43, 35, 0.14);
+}
+
+.contact-cta .wa-form {
+  text-align: left;
+}
+
+.wa-field {
+  margin-bottom: 1rem;
+}
+
+.wa-field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--brand-green);
+}
+
+.wa-form input,
+.wa-form select,
+.wa-form textarea {
+  width: 100%;
+  padding: 0.8rem 0.95rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--brand-text);
+  background: #FFFDF8;
+  border: 1px solid rgba(13, 43, 35, 0.20);
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.wa-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+
+.wa-form .wa-submit {
+  width: 100%;
+  justify-content: center;
+}
+
+/* =========================================================
+   NAVEGAÇÃO NO CELULAR
+   ========================================================= */
+.nav-toggle {
+  display: none;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid rgba(13, 43, 35, 0.18);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--brand-green);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.nav-toggle.ativo span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.ativo span:nth-child(2) { opacity: 0; }
+.nav-toggle.ativo span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-toggle:focus-visible,
+.wa-form :focus-visible,
+.nav-menu a:focus-visible {
+  outline: 2px solid var(--brand-gold);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   CELULAR — AJUSTES DE LAYOUT
+   ========================================================= */
+@media (max-width: 900px) {
+  .nav-container {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .nav-toggle { display: flex; order: 3; }
+
+  .nav-container .logo { flex: 1 1 auto; min-width: 0; }
+  .nav-container .logo .logo-icon { flex: 0 0 auto; }
+  .nav-container .btn-contact { flex: 0 0 auto; order: 2; }
+
+  .nav-menu {
+    display: flex !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #FFFDF8;
+    border-top: 1px solid rgba(13, 43, 35, 0.10);
+    box-shadow: 0 16px 30px rgba(9, 35, 29, 0.14);
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.28s ease, visibility 0s linear 0.28s;
+  }
+
+  .nav-menu.aberto {
+    max-height: 340px;
+    visibility: visible;
+    transition: max-height 0.28s ease, visibility 0s;
+  }
+
+  .nav-menu li { width: 100%; }
+
+  .nav-menu a {
+    display: block;
+    padding: 13px 20px;
+    font-size: 1.02rem !important;
+    border-bottom: 1px solid rgba(13, 43, 35, 0.07);
+  }
+
+  .header { position: sticky; }
+}
+
+@media (max-width: 768px) {
+  /* Cabeçalho compacto: a marca deixa de quebrar em duas linhas */
+  .logo-text .logo-name {
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+    white-space: nowrap;
+  }
+
+  .logo-text span { font-size: 0.76rem !important; }
+
+  .logo .logo-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .nav-container .btn-contact {
+    padding: 10px 14px !important;
+    font-size: 0.86rem !important;
+    white-space: nowrap;
+  }
+
+  /* Hero mais denso e legível */
+  .hero { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+
+  .hero-title { font-size: 2.3rem !important; line-height: 1.15 !important; }
+
+  .hero-subtitle {
+    font-size: 1.1rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-description {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    max-width: 38ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Seções: respiro consistente e sem estouro lateral */
+  .container,
+  .gallery-container,
+  .footer-container {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .gallery-container { overflow-x: hidden; }
+
+  .section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+
+  .section-subtitle { font-size: 1rem !important; line-height: 1.5 !important; }
+
+  /* Contato */
+  .contact-content { gap: 1.5rem !important; }
+
+  .contact-cta { padding: 1.6rem 1.3rem !important; }
+
+  .contact-item { text-align: left; }
+
+  .map-embed { margin-top: 2rem; }
+  .map-embed iframe { height: 260px; }
+
+  /* Botão flutuante não cobre o envio do formulário */
+  .whatsapp-button {
+    width: 54px !important;
+    height: 54px !important;
+    right: 14px !important;
+    bottom: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.95rem !important; }
+  .logo-text .logo-name { font-size: 0.98rem !important; }
+  .nav-container .btn-contact { padding: 9px 12px !important; font-size: 0.8rem !important; }
+  .section-title { font-size: 1.7rem !important; }
+}
+
+/* O iOS dá zoom automático em campos com fonte menor que 16px */
+@media (max-width: 768px) {
+  .wa-form input,
+  .wa-form select,
+  .wa-form textarea { font-size: 16px; }
+}
+
+/* Botão flutuante recolhe quando a seção de contato está visível */
+.whatsapp-button {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.whatsapp-button.oculto {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+/* =========================================================
+   IDENTIDADE VISUAL — VERDE COMO COR PRIMÁRIA (ajuste solicitado)
+   O degradê verde-escuro usado na seção Início passa a ser a cor
+   dominante em todo o site (cabeçalho, rodapé e seção Sobre).
+   O dourado é mantido como cor secundária de apoio/contraste,
+   pois já tem bom contraste sobre o verde escuro.
+   ========================================================= */
+
+/* Cabeçalho: mesmo degradê verde do Início */
+.header {
+  background: linear-gradient(135deg, var(--brand-green-3) 0%, var(--brand-green) 58%, var(--brand-green-2) 100%) !important;
+  border-bottom: 1px solid rgba(234, 176, 76, .28) !important;
+  box-shadow: 0 4px 18px rgba(9, 35, 29, .22) !important;
+}
+
+.logo-text .logo-name { color: var(--brand-cream) !important; }
+.logo-text span { color: rgba(252, 250, 245, .72) !important; }
+
+.nav-menu a { color: var(--brand-cream) !important; }
+.nav-menu a:hover,
+.nav-menu a.active { color: var(--brand-gold) !important; }
+
+/* Botão hambúrguer: precisa ficar visível sobre o cabeçalho escuro */
+.nav-toggle { border-color: rgba(252, 250, 245, .45) !important; }
+.nav-toggle span { background: var(--brand-cream) !important; }
+
+/* O menu suspenso do celular continua com fundo claro, então o
+   texto volta a ser verde-escuro ali para manter boa leitura */
+@media (max-width: 900px) {
+  .nav-menu a { color: var(--brand-green) !important; }
+  .nav-menu a:hover,
+  .nav-menu a.active { color: var(--brand-green) !important; background: rgba(234, 176, 76, .12) !important; }
+}
+
+/* Rodapé: mesmo degradê do início, fechando a identidade visual */
+.footer {
+  background: linear-gradient(135deg, var(--brand-green-3) 0%, var(--brand-green) 55%, var(--brand-green-2) 100%) !important;
+}
+
+/* Seção "Sobre Mim" ganha o verde como plano de fundo, criando um
+   segundo momento de destaque na página (selecionada por ID para
+   não ser afetada pela alternância de cores das demais seções) */
+#sobre.about-section {
+  background: linear-gradient(135deg, var(--brand-green-3) 0%, var(--brand-green) 60%, var(--brand-green-2) 100%) !important;
+}
+#sobre .section-title { color: var(--brand-cream) !important; }
+#sobre .intro-text { color: var(--brand-cream) !important; text-shadow: none !important; }
+#sobre .intro-text strong { color: var(--brand-gold-light) !important; }
+
+/* Alternância de fundo das demais seções ganha um leve tom
+   esverdeado no lugar do branco neutro, para o verde "conversar"
+   com o restante da página mesmo fora das áreas escuras */
+.section:nth-of-type(even) { background: #F2F6F3 !important; }
+
+/* Fio verde no topo dos cartões, unificando a identidade visual
+   entre Especialidades, Depoimentos e Contato */
+.specialty-card,
+.testimonial-card,
+.contact-item {
+  border-top: 4px solid var(--brand-green) !important;
+}
+
+/* O detalhe de destaque da introdução de Especialidades passa a
+   conversar com o verde principal em vez de usar só o dourado */
+#especialidades .section-subtitle { border-left: 4px solid var(--brand-green) !important; }
+
+/* =========================================================
+   CELULAR — CABEÇALHO PROFISSIONAL
+   Correção de um problema real encontrado: em telas estreitas o
+   nome "Dra. Karla Moraes" ficava largo demais e o texto invadia
+   visualmente o botão "Reservar Horário". Agora o texto encolhe
+   com reticências (...) em vez de sobrepor o botão.
+   ========================================================= */
+@media (max-width: 768px) {
+  .logo-text { min-width: 0; }
+  .logo-text .logo-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo-text .logo-name { font-size: 0.88rem !important; }
+  .logo-text span { font-size: 0.68rem !important; }
+  .nav-container .btn-contact { padding: 8px 10px !important; font-size: 0.74rem !important; }
+}
