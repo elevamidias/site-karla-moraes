@@ -2721,3 +2721,21 @@ a { --accent-purple: var(--brand-gold); }
     order: 6;
   }
 }
+
+/* =========================================================
+   HERO MOBILE — AJUSTE DE RESPIRO NO TEXTO APÓS A FOTO
+   Mantém desktop intacto.
+   ========================================================= */
+@media (max-width: 768px) {
+  .hero .hero-subtitle {
+    margin-top: 1.35rem !important;
+    margin-bottom: 1.35rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .hero .hero-description {
+    margin-top: 0.2rem !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.72 !important;
+  }
+}
