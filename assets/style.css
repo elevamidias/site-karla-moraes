@@ -2194,37 +2194,8 @@ a { --accent-purple: var(--brand-gold); }
 
 
 /* =========================================================
-   MAPA E FORMULÁRIO DE CONTATO
+   FORMULÁRIO DE CONTATO
    ========================================================= */
-.map-embed {
-  margin: 3rem 0 0;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(13, 43, 35, 0.12);
-  box-shadow: 0 10px 30px rgba(9, 35, 29, 0.10);
-  background: var(--brand-white);
-}
-
-.map-embed iframe {
-  display: block;
-  width: 100%;
-  height: 380px;
-  border: 0;
-}
-
-.map-embed .map-link {
-  display: block;
-  padding: 0.9rem 1.2rem;
-  text-align: center;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--brand-green);
-  background: var(--brand-cream);
-  border-top: 1px solid rgba(13, 43, 35, 0.10);
-}
-
-.map-embed .map-link:hover { color: #8A6118; }
-
 
 
 
@@ -2273,7 +2244,6 @@ a { --accent-purple: var(--brand-gold); }
 .wa-form .wa-submit { width: 100%; }
 
 @media (max-width: 600px) {
-  .map-embed iframe { height: 300px; }
 }
 
 
@@ -2586,9 +2556,6 @@ a { --accent-purple: var(--brand-gold); }
 
   .contact-item { text-align: left; }
 
-  .map-embed { margin-top: 2rem; }
-  .map-embed iframe { height: 260px; }
-
   /* Botão flutuante não cobre o envio do formulário */
   .whatsapp-button {
     width: 54px !important;
@@ -2709,4 +2676,48 @@ a { --accent-purple: var(--brand-gold); }
   .logo-text .logo-name { font-size: 0.88rem !important; }
   .logo-text span { font-size: 0.68rem !important; }
   .nav-container .btn-contact { padding: 8px 10px !important; font-size: 0.74rem !important; }
+}
+
+
+/* =========================================================
+   HERO MOBILE — FOTO APÓS O NOME
+   Mantém o layout desktop intacto.
+   ========================================================= */
+@media (max-width: 768px) {
+  .hero .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  /* Permite que os elementos internos do texto ocupem a
+     mesma sequência vertical do container no mobile. */
+  .hero .hero-text {
+    display: contents !important;
+  }
+
+  .hero .badge {
+    order: 1;
+  }
+
+  .hero .hero-title {
+    order: 2;
+  }
+
+  .hero .hero-image {
+    order: 3;
+    width: 100%;
+  }
+
+  .hero .hero-subtitle {
+    order: 4;
+  }
+
+  .hero .hero-description {
+    order: 5;
+  }
+
+  .hero .hero-buttons {
+    order: 6;
+  }
 }
