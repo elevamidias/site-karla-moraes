@@ -685,6 +685,55 @@ img {
   }
 }
 
+/* Localização / mapa */
+.contact-map {
+  margin-top: var(--spacing-xxl);
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.contact-map-header {
+  padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-md);
+}
+
+.contact-map-header h3 {
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-xs);
+  font-size: 1.4rem;
+}
+
+.contact-map-header p {
+  margin: 0;
+}
+
+.contact-map-frame {
+  width: 100%;
+  height: 360px;
+}
+
+.contact-map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .contact-map {
+    margin-top: var(--spacing-lg);
+  }
+
+  .contact-map-header {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .contact-map-frame {
+    height: 300px;
+  }
+}
+
 /* Footer */
 .footer {
   background: linear-gradient(135deg, var(--verdeclaro), var(--rosadela));

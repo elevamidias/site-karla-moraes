@@ -18,3 +18,10 @@ Refatoração conservadora do CSS, sem alteração intencional de design, textos
 
 ## Importante
 A V19 continua sendo a referência visual. Se qualquer diferença aparecer no teste, a V19 deve ser usada como comparação.
+
+
+### Atualização posterior
+- Removido o card de Psicoterapia da seção Especialidades.
+- Atualizado o endereço de atendimento para Tv Angustura N 1008, Pedreira, Belém - PA.
+- Adicionado mapa responsivo da localização na seção Contato.
+- Atualizado o endereço no rodapé e nos dados estruturados do site.
